@@ -117,14 +117,14 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(int index) {
 		// Add your implementation here
-		try {
+		/*try {
 			if(index < 0 || index >= students.length)
 				throw new IllegalArgumentException();
 			Student[] n = new Student[students.length - 1];
 			System.arraycopy(students, o, n, 0, length);
 		}catch(IllegalArgumentException iae) {
 			iae.printStackTrace();
-		}
+		}*/
 	}
 
 	@Override
