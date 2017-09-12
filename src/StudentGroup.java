@@ -165,23 +165,6 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
-		try {
-			if(student == null)
-				throw new IllegalArgumentException();
-			int i;
-			for(i = 0; i < students.length; i++) {
-				if(students[i] == student) {
-					break;
-				}
-			}
-			Student[] temp = new Student[i];
-			for(int j = 0; j < i; j++) {
-				temp[j] = students[j];
-			}
-			students = temp;
-		}catch(IllegalArgumentException iae) {
-			iae.printStackTrace();
-		}
 	}
 
 	@Override
