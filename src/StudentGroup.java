@@ -152,8 +152,8 @@ public class StudentGroup implements StudentArrayOperation {
 		try {
 			if(index < 0 || index >= students.length)
 				throw new IllegalArgumentException();
-			Student[] temp = new Student[index];
-			for(int i = 0; i < index; i++) {
+			Student[] temp = new Student[index + 1];
+			for(int i = 0; i < index + 1; i++) {
 				temp[i] = students[i];
 			}
 			students = temp;
@@ -174,8 +174,8 @@ public class StudentGroup implements StudentArrayOperation {
 					break;
 				}
 			}
-			Student[] temp = new Student[i];
-			for(int j = 0; j < i; j++) {
+			Student[] temp = new Student[i + 1];
+			for(int j = 0; j < i + 1; j++) {
 				temp[j] = students[j];
 			}
 			students = temp;
@@ -203,6 +203,13 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+		try {
+			if(student == null)
+				throw new IllegalArgumentException();
+			
+		}catch(IllegalArgumentException iae) {
+			iae.printStackTrace();
+		}
 	}
 
 	@Override
