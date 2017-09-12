@@ -203,13 +203,6 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
-		/*try {
-			if(student == null)
-				throw new IllegalArgumentException();
-			
-		}catch(IllegalArgumentException iae) {
-			iae.printStackTrace();
-		}*/
 	}
 
 	@Override
