@@ -25,19 +25,16 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student[] getStudents() {
-		// Add your implementation here
-		Student[] b;
-		for(int i = 0; i < students.length; i++) {
-			b[i] = students[i];
-		}
-		return b;
+		// Add your implementation her
+		return students;
 	}
 
 	@Override
 	public void setStudents(Student[] students) {
 		// Add your implementation here
 		try {
-			if(students == null) throws IllegalArgumentException;
+			if(students == null) 
+				throw new IllegalArgumentException();
 			for(int i = 0; i < students.length; i++)
 				this.students[i] = students[i];
 			
@@ -52,12 +49,12 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		try {
 			if(index < 0 || index >= students.length)
-				throws IllegalArgumentException;
+				throw new IllegalArgumentException();
 		    return students[index];
 		}catch(IllegalArgumentException iae) {
 			iae.printStackTrace();
 		}
-		
+		return null;
 	}
 
 	@Override
@@ -65,9 +62,9 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		try {
 			if(student == null) 
-			    throws IllegalArgumentException;
-			if(index < 0 || index >= student.length)
-				throws IllegalArgumentException;
+			    throw new IllegalArgumentException();
+			if(index < 0 || index >= students.length)
+				throw new IllegalArgumentException();
 			this.students[index] = student;
 		}
 		catch(IllegalArgumentException iae) {
@@ -80,8 +77,8 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		try {
 			if(student == null)
-				throws IllegalArgumentException;
-			Student[] temp = new Student(students.length + 1);
+				throw new IllegalArgumentException();
+			Student[] temp = new Student[students.length + 1];
 			temp[0] = student;
 			for(int i = 1; i < students.length + 1; i++)
 				temp[i] = students[i];
@@ -94,11 +91,27 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
+		try {
+			if(student == null)
+				throw new IllegalArgumentException();
+			Student[] temp = new Student[students.length+1];
+			temp[students.length] = student;
+			students = temp;
+		}catch(IllegalArgumentException iae) {
+			iae.printStackTrace();
+		}
 	}
 
 	@Override
 	public void add(Student student, int index) {
 		// Add your implementation here
+		Student[] res = new Student[students.length+1];
+	    for(int i = 0; i < index; i++)
+	        res[i] = students[i];
+	    res[index] = student;
+	    for(int i = index + 1; i < students.length + 1; i++)
+	        res[i] = students[i - 1];
+	    students = res;
 	}
 
 	@Override
